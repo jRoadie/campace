@@ -1,0 +1,4 @@
+<div class="ui accordion">
+    <div ng-repeat-start="item in items track by $index" class="title {{item.active || ''}}">{{item.title}}</div>
+    <div ng-repeat-end class="content {{item.active || ''}}">{{item.content}}</div>
+</div>

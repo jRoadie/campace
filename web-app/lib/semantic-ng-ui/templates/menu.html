@@ -1,0 +1,5 @@
+<div class="ui menu">
+    <a ng-repeat-start="item in items" class="item {{item.active}}" href="{{item.link}}">
+        <i ng-if="item.icon" class="icon {{item.icon}}"></i> {{item.text}} <i ng-if="item.icon && item.iconRight" class="icon {{item.icon}}"></i>
+    </a>
+</div>
