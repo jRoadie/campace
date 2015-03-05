@@ -7,44 +7,70 @@
 
     <app:js path="lib/jquery/jquery.js"/>
     <app:js path="lib/angular/angular.js"/>
+    <app:js path="lib/angular/angular-route.js"/>
     <app:js path="lib/semantic-ui/semantic.js"/>
-    <app:js path="lib/semantic-ng-ui.js"/>
+    <app:js path="lib/semantic-ng-ui/semantic-ng-ui.js"/>
     <app:js path="js/app.js"/>
 
+    <script type="text/javascript">
+    var users = [{
+        name: 'Hasan',
+        email: 'hasan@campace.com',
+        role: 'admin'
+    }, {
+        name: 'Russel',
+        email: 'russel@campace.com',
+        role: 'developer'
+    }]
+    </script>
+
+    <script type="text/javascript">
+        $(function() {
+            $('.ui.sidebar')
+                    .sidebar({
+                        context: $('.bottom.segment')
+                    })
+                    .sidebar('attach events', '.menu .item')
+            ;
+        })
+    </script>
+
 </head>
-<body>
-<div class="ui grid fluid fitted column">
-    <div class="column ui segment">
-        <div class="ui visible inverted left vertical sidebar menu">
-            <a class="active item">
-                <i class="home icon"></i> Home
-            </a>
+<body ng-app="campace">
+<div class="ui bottom attached segment">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+        <a class="item">
+            <i class="home icon"></i>
+            Home
+        </a>
+        <a class="item" href="#/campace/user?id=5346">
+            <i class="calendar icon"></i>
+            User
+        </a>
+        <a class="item">
+            <i class="block layout icon"></i>
+            Topics
+        </a>
+        <a class="item">
+            <i class="smile icon"></i>
+            Friends
+        </a>
+        <a class="item">
+            <i class="calendar icon"></i>
+            History
+        </a>
+    </div>
+    <div class="pusher">
+        <div class="ui top attached demo menu">
             <a class="item">
-                <i class="mail icon"></i> Messages
+                <i class="sidebar icon"></i>
+                Menu
             </a>
-            <a class="item">
-                <i class="user icon"></i> Friends
-            </a>
-            <div class="right menu">
-                <div class="item">
-                    <div class="ui icon input">
-                        <input type="text" placeholder="Search...">
-                        <i class="search link icon"></i>
-                    </div>
-                </div>
-                <div class="ui dropdown item">
-                    Language
-                    <i class="dropdown icon"></i>
-                    <div class="menu">
-                        <a class="item">English</a>
-                        <a class="item">Russian</a>
-                        <a class="item">Spanish</a>
-                    </div>
-                </div>
-            </div>
+        </div>
+        <div class="ui basic segment">
+            <div ng-view></div>
         </div>
     </div>
-    <div class="column ui segment">gggg</div>
 </div>
 </body>
 </html>
